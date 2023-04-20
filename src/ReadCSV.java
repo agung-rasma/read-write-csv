@@ -19,7 +19,7 @@ public class ReadCSV {
 //    static final String file = "MOCK_DATA.csv";
 
     public static void main(String[] args) {
-        final String file = "MOCK_DATA.csv";
+        final String file = "test write.csv";
         readCSVWithCommons(file);
 //        readCSVManual(file);
 
@@ -50,12 +50,21 @@ public class ReadCSV {
             
             for (CSVRecord record : records) {
                 
-                String firstName = record.get("first_name");
-                String lastName = record.get("last_name");
-                Date date=sdf.parse(record.get("date"));
+                String id=record.get("ID");
+                String name=record.get("Name");
+                String designation=record.get("Company");
+                String khusus=record.get("Khusus");
                 
-                System.out.println(firstName+" "+lastName);
-                System.out.println(sdf.format(date));
+                System.out.print(id+" | ");
+                System.out.printf("%-30s | ", name);
+                System.out.printf("%-10s | ", designation);
+                System.out.println(khusus);
+//                String firstName = record.get("first_name");
+//                String lastName = record.get("last_name");
+//                Date date=sdf.parse(record.get("date"));
+//                
+//                System.out.println(firstName+" "+lastName);
+//                System.out.println(sdf.format(date));
             }
         } catch (Exception e) {
             e.printStackTrace();
